@@ -9,13 +9,13 @@ class UserManage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            arrUsers: [],
-            isOpenModal: false
+            arrUsers: []
         }
     }
 
     async componentDidMount() {
         let response = await getAllUsers('All');
+        console.log(response);
         if (response && response.data.errCode === 0) {
             this.setState({
                 arrUsers: response.data.users
@@ -31,25 +31,14 @@ class UserManage extends Component {
      */
 
     handleAddNewUser = () => {
-        this.setState({
-            isOpenModal: true,
-        })
-    }
-
-    toggleUserModal = () => {
-        this.setState({
-            isOpenModal: !this.state.isOpenModal
-        })
+        alert("hihi");
     }
 
     render() {
         let arrUsers = this.state.arrUsers;
         return (
             <div className="users-container">
-                <ModalUser
-                    isOpen={this.state.isOpenModal}
-                    toggleFromParent={this.toggleUserModal}
-                />
+                <ModalUser></ModalUser>
                 <div className='title text-center mb-3'>MANAGE USERS WITH NAM</div>
                 <div className='m-2'>
                     <button

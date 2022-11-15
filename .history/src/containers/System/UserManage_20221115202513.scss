@@ -48,17 +48,6 @@
 }
 
 .modal-user-container{
-  .modal-header{
-    .close{
-      border: none;
-      outline: none;
-      cursor: pointer;
-      color: white;
-      background-color: transparent;
-      font-size: 24px;
-    }
-  }
-
   .modal-user-body{
     display: flex;
     align-items: center;
@@ -73,19 +62,14 @@
       flex-direction: column;
       width: calc(50% - 10px);
       
-      &:last-child{
-        width: 100%;
-      }
-
+    
       input {
         border: 1px solid gray;
         outline: none;
         border-radius: 8px;
-        padding: 6px 12px;
+        padding: 4px 12px;
       }
     }
-
-    
   }
 }
 

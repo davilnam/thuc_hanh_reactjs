@@ -48,44 +48,17 @@
 }
 
 .modal-user-container{
-  .modal-header{
-    .close{
-      border: none;
-      outline: none;
-      cursor: pointer;
-      color: white;
-      background-color: transparent;
-      font-size: 24px;
-    }
-  }
-
-  .modal-user-body{
+  .input-container{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    flex-direction: column;
 
-    gap: 10px;
-
-
-    .input-container{
-      display: flex;
-      flex-direction: column;
-      width: calc(50% - 10px);
-      
-      &:last-child{
-        width: 100%;
-      }
-
-      input {
-        border: 1px solid gray;
-        outline: none;
-        border-radius: 8px;
-        padding: 6px 12px;
-      }
+    input {
+      display: block;
+      border: 1px solid gray;
+      outline: none;
+      border-radius: 6px;
+      padding: 4px 12px;
     }
-
-    
   }
 }
 
