@@ -48,16 +48,8 @@ class ModalUser extends Component {
         let isValid = this.checkValidateInput();
         if (isValid) {
             this.props.newUser(this.state);
-        }
-        this.setState({
-            email: '',
-            password: '',
-            firstName: '',
-            lastName: '',
-            address: ''
-        })
-        this.toggle();
 
+        }
     }
 
     render() {

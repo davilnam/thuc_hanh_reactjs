@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import { getAllUsers, createNewUser } from '../../services/userService';
+import { getAllUsers } from '../../services/userService';
 import './UserManage.scss';
 import ModalUser from './ModalUser';
 class UserManage extends Component {
@@ -15,10 +15,6 @@ class UserManage extends Component {
     }
 
     async componentDidMount() {
-        await this.getAllUsersFromReact();
-    }
-
-    getAllUsersFromReact = async () => {
         let response = await getAllUsers('All');
         if (response && response.data.errCode === 0) {
             this.setState({
@@ -46,19 +42,8 @@ class UserManage extends Component {
         })
     }
 
-    createNewUser = async (dataNewUser) => {
-        try {
-            let response = await createNewUser(dataNewUser);
-            console.log("check response", response);
-            if (response && response.data.errCode === 0) {
-                await this.getAllUsersFromReact();
-            } else {
-                alert(response.data.errMessage);
-            }
-
-        } catch (e) {
-            console.log(e);
-        }
+    createNewUser = () => {
+        alert("ahihi");
     }
 
     render() {
@@ -82,7 +67,7 @@ class UserManage extends Component {
                 </div>
                 <div className='users-table mx-2'>
                     <table id="customers">
-                        <thead>
+                        <tbody>
                             <tr>
                                 <th>Email</th>
                                 <th>First name</th>
@@ -90,11 +75,10 @@ class UserManage extends Component {
                                 <th>Address</th>
                                 <th>Actions</th>
                             </tr>
-                        </thead>
-                        <tbody>
-                            {arrUsers && arrUsers.map((item) => {
+
+                            {arrUsers && arrUsers.map((item, index) => {
                                 return (
-                                    <tr key={item.id}>
+                                    <tr key={index}>
                                         <td>{item.email}</td>
                                         <td>{item.firstName}</td>
                                         <td>{item.lastName}</td>

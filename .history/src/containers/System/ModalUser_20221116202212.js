@@ -49,13 +49,13 @@ class ModalUser extends Component {
         if (isValid) {
             this.props.newUser(this.state);
         }
-        this.setState({
-            email: '',
-            password: '',
-            firstName: '',
-            lastName: '',
-            address: ''
-        })
+        // this.setState({
+        //     email: '',
+        //     password: '',
+        //     firstName: '',
+        //     lastName: '',
+        //     address: ''
+        // })
         this.toggle();
 
     }

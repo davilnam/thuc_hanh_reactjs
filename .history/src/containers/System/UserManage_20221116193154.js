@@ -47,17 +47,15 @@ class UserManage extends Component {
     }
 
     createNewUser = async (dataNewUser) => {
-        try {
-            let response = await createNewUser(dataNewUser);
-            console.log("check response", response);
-            if (response && response.data.errCode === 0) {
-                await this.getAllUsersFromReact();
-            } else {
-                alert(response.data.errMessage);
-            }
-
-        } catch (e) {
-            console.log(e);
+        console.log(dataNewUser);
+        let response = await createNewUser(dataNewUser);
+        console.log("check response", response);
+        if (response && response.data.errCode === 0) {
+            let arrNewUsers = this.state.arrUsers;
+            arrNewUsers = { ...arrNewUsers, dataNewUser }
+            this.setState({
+                arrUsers: arrNewUsers
+            })
         }
     }
 

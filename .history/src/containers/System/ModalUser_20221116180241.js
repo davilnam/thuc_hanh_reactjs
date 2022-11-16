@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
 class ModalUser extends Component {
 
     constructor(props) {
@@ -31,33 +30,8 @@ class ModalUser extends Component {
         })
     }
 
-    checkValidateInput = () => {
-        let isValid = true;
-        let arrInput = ['email', 'password', 'firstName', 'lastName', 'address'];
-        for (let i = 0; i < arrInput.length; i++) {
-            if (!this.state[arrInput[i]]) {
-                isValid = false;
-                alert('Missing parameter: ' + arrInput[i]);
-                break;
-            }
-        }
-        return isValid;
-    }
-
-    handleAddNewUser = async () => {
-        let isValid = this.checkValidateInput();
-        if (isValid) {
-            this.props.newUser(this.state);
-        }
-        this.setState({
-            email: '',
-            password: '',
-            firstName: '',
-            lastName: '',
-            address: ''
-        })
-        this.toggle();
-
+    handleAddNewUser = () => {
+        console.log("data modal", this.state);
     }
 
     render() {

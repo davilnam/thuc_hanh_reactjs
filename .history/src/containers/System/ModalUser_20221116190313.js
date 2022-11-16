@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
+// import { createNewUser } from '../../services/userService'
 class ModalUser extends Component {
 
     constructor(props) {
@@ -47,20 +47,14 @@ class ModalUser extends Component {
     handleAddNewUser = async () => {
         let isValid = this.checkValidateInput();
         if (isValid) {
-            this.props.newUser(this.state);
-        }
-        this.setState({
-            email: '',
-            password: '',
-            firstName: '',
-            lastName: '',
-            address: ''
-        })
-        this.toggle();
+            // let response = await createNewUser(this.state);
+            // console.log("check response", response);
 
+        }
     }
 
     render() {
+        console.log("check props", this.props);
         return (
             <Modal
                 isOpen={this.props.isOpen}

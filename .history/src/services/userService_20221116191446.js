@@ -9,7 +9,13 @@ const getAllUsers = (inputId) => {
 }
 
 const createNewUser = (data) => {
-    return axios.post('/api/create-new-user', data);
+    return axios.post('/api/create-new-user', {
+        email: data.email,
+        password: data.password,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        address: data.address
+    });
 }
 
 export { handleLoginApi, getAllUsers, createNewUser }
