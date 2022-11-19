@@ -1,0 +1,83 @@
+.home-header-container{
+    width: 100%;
+    height: 80px;
+    border: 1px solid red;
+    padding: 10px 0;
+
+    .home-header-content{
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        .left-content{
+            width: 25%;            
+            display: flex;
+            align-items: center;
+            justify-content: right;
+
+            i {
+                font-size: 26px;
+                cursor: pointer;
+                color: gray;
+                margin-right: 16px;
+            }
+
+            .header-logo{
+                background: url('../../assets/bookingcare-2020.svg') center center no-repeat;
+                height: 100%;
+                width: 50%;
+                margin-right: 30px;
+                cursor: pointer;
+            }
+        }
+
+        .center-content{
+            width: 50%;
+           
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            .child-content{
+                font-size: 13px;
+                cursor: pointer;
+
+                .desc{
+                    color: rgb(144, 144, 144);
+                    font-size: 11px;
+                }
+            }
+        }
+
+        .right-content{
+            width: 25%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .support{
+                margin: 0 4px;
+
+                i{
+                    color: rgb(6, 189, 244)
+                }
+            }
+            
+
+        }
+    }
+}
+
+.home-header-banner{
+    width: 100%;
+    height: 550px;
+    background: url('../../assets/bookingcare-cover-4.jpg') top center / cover;
+    
+    .home-header-background{
+        height: 570px;
+        background-image: linear-gradient(transparent 82%, rgba(255, 255, 255, 0.8) 90%); 
+    }
+;
+    
+    
+}
