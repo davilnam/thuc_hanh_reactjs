@@ -78,7 +78,7 @@ class UserManage extends Component {
 
     doEditUser = async (user) => {
         try {
-            let response = await updateUser(user);
+            let response = await updateUser(user.id);
             if (response && response.data.errCode === 0) {
                 await this.getAllUsersFromReact();
             } else {

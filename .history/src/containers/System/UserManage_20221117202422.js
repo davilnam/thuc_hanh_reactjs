@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import { getAllUsers, createNewUser, deleteUser, updateUser } from '../../services/userService';
+import { getAllUsers, createNewUser, deleteUser } from '../../services/userService';
 import './UserManage.scss';
 import ModalUser from './ModalUser';
 import ModalEditUser from './ModalEditUser';
@@ -58,6 +58,7 @@ class UserManage extends Component {
     createNewUser = async (dataNewUser) => {
         try {
             let response = await createNewUser(dataNewUser);
+            console.log("check response", response);
             if (response && response.data.errCode === 0) {
                 await this.getAllUsersFromReact();
             } else {
@@ -69,25 +70,11 @@ class UserManage extends Component {
         }
     }
 
-    handleEdidUserOnClick = async (user) => {
+    handleEdidUserOnClick = (user) => {
         this.setState({
             isOpenModalEditUser: true,
             userEdit: user
         })
-    }
-
-    doEditUser = async (user) => {
-        try {
-            let response = await updateUser(user);
-            if (response && response.data.errCode === 0) {
-                await this.getAllUsersFromReact();
-            } else {
-                alert(response.data.errMessage);
-            }
-
-        } catch (e) {
-            console.log(e);
-        }
     }
 
     handleDeleteUser = async (user) => {
@@ -117,9 +104,7 @@ class UserManage extends Component {
                         isOpen={this.state.isOpenModalEditUser}
                         toggleFromParent={this.toggleUserEditModal}
                         data={this.state.userEdit}
-                        editUser={this.doEditUser}
-                    />
-                }
+                    />}
                 <div className='title text-center mb-3'>MANAGE USERS WITH NAM</div>
                 <div className='m-2'>
                     <button

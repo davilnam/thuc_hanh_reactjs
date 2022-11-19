@@ -58,6 +58,7 @@ class UserManage extends Component {
     createNewUser = async (dataNewUser) => {
         try {
             let response = await createNewUser(dataNewUser);
+            console.log("check response", response);
             if (response && response.data.errCode === 0) {
                 await this.getAllUsersFromReact();
             } else {
@@ -74,11 +75,9 @@ class UserManage extends Component {
             isOpenModalEditUser: true,
             userEdit: user
         })
-    }
-
-    doEditUser = async (user) => {
         try {
-            let response = await updateUser(user);
+            let response = await createNewUser(dataNewUser);
+            console.log("check response", response);
             if (response && response.data.errCode === 0) {
                 await this.getAllUsersFromReact();
             } else {
@@ -117,7 +116,7 @@ class UserManage extends Component {
                         isOpen={this.state.isOpenModalEditUser}
                         toggleFromParent={this.toggleUserEditModal}
                         data={this.state.userEdit}
-                        editUser={this.doEditUser}
+                    // updateUser={}
                     />
                 }
                 <div className='title text-center mb-3'>MANAGE USERS WITH NAM</div>
